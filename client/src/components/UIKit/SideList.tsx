@@ -10,6 +10,8 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 import ModeCommentIcon from '@material-ui/icons/ModeComment';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import HistoryIcon from '@material-ui/icons/History';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import PopOver from "./PopOver";
 import { signOut } from '../../reducks/users/operations'
 
@@ -39,10 +41,10 @@ const SideList = (props: Props) => {
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
 
-    const showSignin = () => {
+    const showSignIn = () => {
         return(
             <>
-                <ListItem button onClick={() => dispatch(push('/signin'))}>
+                <ListItem button onClick={() => dispatch(push('/signIn'))}>
                     <ListItemIcon>
                         <PersonAddIcon />
                     </ListItemIcon>
@@ -91,8 +93,20 @@ const SideList = (props: Props) => {
                 <ListItemText primary="ホーム" />
             </ListItem>
             <Divider />
-            {!uid ? showSignin() : showSignOut()}
+            {!uid ? showSignIn() : showSignOut()}
             <Divider />
+                <ListItem button onClick={() => dispatch(push('/task'))}>
+                    <ListItemIcon>
+                        <FormatListBulletedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="タスク" />
+                </ListItem>
+                <ListItem button onClick={() => dispatch(push('/calendar'))}>
+                    <ListItemIcon>
+                        <CalendarTodayIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="カレンダー" />
+                </ListItem>
         </List>
     )
 }

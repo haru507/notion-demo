@@ -3,7 +3,7 @@ import {isValidEmailFormat, isValidRequiredInput} from "../../utils/common";
 import {hideLoadingAction, showLoadingAction} from "../loading/actions";
 import axios from 'axios';
 import {push} from 'connected-react-router'
-import { SPRING_URL } from "../../utils/config";
+import { SEVER_URL } from "../../utils/config";
 
 interface SigninResponse {
     access_token: string,
@@ -21,6 +21,7 @@ interface SigninUserResponse {
 
 export const signUp = (username: string, email: string, password: string, confirmPassword: string) => {
     return async (dispatch: any) => {
+        dispatch(showLoadingAction("Sign up..."));
         // Validations
         if(!isValidRequiredInput(username, email, password, confirmPassword)) {
             alert('必須項目が未入力です。');
@@ -45,24 +46,12 @@ export const signUp = (username: string, email: string, password: string, confir
             username: username,
             password: password
         };
-        return axios.post(`${SPRING_URL.key}/api/user/save`, userInitialData ,{ headers: {'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*'} })
+        return axios.post(`${SEVER_URL.key}/signup`, userInitialData ,{ headers: {'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*'} })
             .then(res => {
                 console.log(res)
-                const addtouser = {
-                    username: username,
-                    roleName: "ROLE_USER"
-                }
-                return axios.post(`${SPRING_URL.key}/api/role/addtouser`, addtouser, { headers: {'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*'} })
-                    .then(res => {
-                        console.log(res)
-                        dispatch(push('/signin'))
-                        alert("新規会員登録が完了しました。ログインを行ってください。")
-                        dispatch(hideLoadingAction())
-                    })
-                    .catch(err => {
-                        console.log(err)
-                        dispatch(hideLoadingAction())
-                    })
+                dispatch(push('/signin'))
+                alert("新規会員登録が完了しました。ログインを行ってください。")
+                dispatch(hideLoadingAction())
             })
             .catch(err => {
                 console.log(err)
@@ -83,14 +72,14 @@ export const signIn = (username: string, password: string) => {
         params.append("username", username)
         params.append("password", password)
 
-        return axios.post<SigninResponse>(`${SPRING_URL.key}/api/login`, params)
+        return axios.post<SigninResponse>(`${SEVER_URL.key}/login`, params)
             .then(res => {
                 console.log(res.data.access_token)
                 console.log(res.data.refresh_token)
                 localStorage.setItem("access_token", res.data.access_token)
                 localStorage.setItem("refresh_token", res.data.refresh_token)
 
-                return axios.get<SigninUserResponse>(`${SPRING_URL.key}/api/user/${username}`, { headers: {Authorization: `Bearer ${localStorage.getItem("access_token")}`, 'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*'} })
+                return axios.get<SigninUserResponse>(`${SEVER_URL.key}/api/user/${username}`, { headers: {Authorization: `Bearer ${localStorage.getItem("access_token")}`, 'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*'} })
                     .then(res => {
                         console.log(res)
                         dispatch(hideLoadingAction());
@@ -108,7 +97,7 @@ export const signIn = (username: string, password: string) => {
                             }
                         }))
                         dispatch(push('/'))
-                        alert("サインインが完了しました。履歴画面と掲示板画面が使えるようになりました。。")
+                        alert("サインインが完了しました。タスク画面とカレンダー画面が使えるようになりました。。")
                     })
                     .catch( err => {
                         dispatch(hideLoadingAction());
@@ -126,7 +115,6 @@ export const signOut = () => {
     return async (dispatch: any) => {
         dispatch(showLoadingAction("Sign out..."));
 
-        // Sign out with Firebase Authentication
         dispatch(signOutAction());
         localStorage.removeItem('access_token')
         localStorage.removeItem('refresh_token')

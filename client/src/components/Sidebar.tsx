@@ -8,7 +8,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { SideList } from "./UIKit";
 import { getUserId } from '../reducks/users/selectors';
 import { useSelector } from "react-redux";
-import { Users } from "../reducks/users/types";
+import { Users } from "../assets/ts/type";
 
 interface Props {
     open: boolean,

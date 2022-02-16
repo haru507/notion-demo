@@ -1,4 +1,4 @@
-import { Users } from "./types";
+import { Users } from "assets/ts/type";
 
 export const SIGN_IN = "SIGN_IN";
 export const signInAction = (userState: Users) => {

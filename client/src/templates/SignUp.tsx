@@ -56,7 +56,7 @@ const SignUp = () => {
                     isButtonChanged={true}
                 />
                 <div className="module-spacer--small" />
-                <p className="u-text-small" onClick={() => dispatch(push('/signin'))}>アカウントをお持ちの方はこちら</p>
+                <p className="u-text-small" onClick={() => dispatch(push('/signIn'))}>アカウントをお持ちの方はこちら</p>
             </div>
         </div>
     );

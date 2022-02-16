@@ -9,7 +9,7 @@ type Props =  {
     multiline: boolean,
     required: boolean,
     rows: number,
-    value: string | number,
+    value: string | number | boolean,
     type: string,
     autoComplete?: string,
     onChange: (e: any) => void

@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useSelector } from "react-redux";
-import { Users } from '../reducks/users/types';
+import { Users } from '../assets/ts/type';
 
 interface Props {
     open: boolean,

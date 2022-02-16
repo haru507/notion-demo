@@ -1,5 +1,5 @@
+import { Users } from "assets/ts/type";
 import { createSelector } from "reselect";
-import { Users } from "./types";
 
 const usersSelector = (state: Users) => state.users;
 

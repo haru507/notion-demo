@@ -34,8 +34,8 @@ const SignIn = () => {
             <div className="center">
                 <PrimaryButton label={"ログイン"} onClick={() => dispatch(signIn(username, password))} isButtonChanged={true} />
                 <div className="module-spacer--small" />
-                <p className="u-text-small" onClick={() => dispatch(push('/signin/reset'))}>パスワードを忘れた方はこちら</p>
-                <p className="u-text-small" onClick={() => dispatch(push('/signup'))}>アカウント登録はまだですか？</p>
+                <p className="u-text-small" onClick={() => dispatch(push('/signIn/reset'))}>パスワードを忘れた方はこちら</p>
+                <p className="u-text-small" onClick={() => dispatch(push('/signUp'))}>アカウント登録はまだですか？</p>
             </div>
         </div>
     );

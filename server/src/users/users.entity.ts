@@ -10,10 +10,10 @@ import {
 import { hash, compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import { TodoEntity } from 'src/todo/todo.entity';
-import { UserSO } from './user.dto';
+import { UserSO } from './users.dto';
 
 @Entity('user')
-export class UserEntity {
+export class Users {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

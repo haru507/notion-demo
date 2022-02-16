@@ -4,13 +4,30 @@ export const initialState = {
         text: ""
     },
     users: {
-        id: "",
+        userId: "",
         email: "",
         username: "",
         roles: {
             id: 0,
             name: ""
         },
-        isSignedIn: false
+        isSignedIn: false,
+        created_at: "",
+        updated_at: ""
+    },
+    tasks: {
+        task: [
+            {
+                id: "",
+                taskGroupId: "",
+                title: "",
+                status: "",
+                description: "",
+                start: "",
+                end: "",
+                createdAt: "",
+                updatedAt: ""
+            }
+        ]
     }
 };

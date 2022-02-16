@@ -38,24 +38,21 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const App = () => {
   const classes = useStyles();
-  const [open, setOpen] = useState<boolean>(true);
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
 
   const handleDrawerOpen = (): void => {
-      setOpen(true);
-  };
-  const handleDrawerClose = (): void => {
-      setOpen(false);
+    setDrawerOpen(!drawerOpen);
   };
 
   return (
     <LoadingIcon>
       <div className={classes.root}>
         <CssBaseline />
-        <Header open={open} onChange={handleDrawerOpen} />
-        <Sidebar open={open} onChange={handleDrawerClose}  />
+        <Header open={drawerOpen} onChange={handleDrawerOpen} />
+        <Sidebar open={drawerOpen} onChange={handleDrawerOpen}  />
         <main
           className={clsx(classes.content, {
-              [classes.contentShift]: open,
+              [classes.contentShift]: drawerOpen,
           })}
         >
             <div className={classes.drawerHeader} />

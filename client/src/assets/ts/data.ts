@@ -1,9 +1,9 @@
-import { Lists, ListsBool } from "./type"
+import { Lists, ListsBool, Task } from "./type"
 
-export const onsenList: Lists[] = [
-    {"id": "", "name": ""},
-    {"id": "", "name": ""},
-    {"id": "", "name": ""}
+export const statusList: Lists[] = [
+    {"id": "1", "name": "未処理"},
+    {"id": "2", "name": "処理中"},
+    {"id": "3", "name": "処理済"}
 ]
 
 export const meetList: Lists[] = [
@@ -21,4 +21,15 @@ export const rangeList: Lists[] = [
     {"id": "3", "name": "1km"},
     {"id": "4", "name": "2km"},
     {"id": "5", "name": "3km"},
+]
+
+export const headData: string[] = [
+    "タスク名", "ステータス", "開始日", "終了日"
+]
+
+export const bodyData: Task[] = [
+    {id: "1", taskGroupId: 1, title: "test1", status: "1", description: "", start: new Date(), end: new Date(), createdAt: new Date(), updatedAt: new Date()},
+    {"id": "2", "taskGroupId": 1, "title": "test2", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
+    {"id": "3", "taskGroupId": 1, "title": "test3", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
+    {"id": "4", "taskGroupId": 1, "title": "test4", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
 ]
