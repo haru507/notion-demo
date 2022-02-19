@@ -1,7 +1,7 @@
 import { Task } from "../../assets/ts/type";
 import axios from "axios";
 import {push} from "connected-react-router";
-import { hideLoadingAction, showLoadingAction } from "reducks/loading/actions";
+import { hideLoadingAction, showLoadingAction } from "../loading/actions"
 import { isValidRequiredInput } from "../../utils/common";
 import { SEVER_URL } from "../../utils/config";
 

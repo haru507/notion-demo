@@ -28,8 +28,8 @@ export const headData: string[] = [
 ]
 
 export const bodyData: Task[] = [
-    {id: "1", taskGroupId: 1, title: "test1", status: "1", description: "", start: new Date(), end: new Date(), createdAt: new Date(), updatedAt: new Date()},
-    {"id": "2", "taskGroupId": 1, "title": "test2", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
-    {"id": "3", "taskGroupId": 1, "title": "test3", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
-    {"id": "4", "taskGroupId": 1, "title": "test4", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
+    {id: "1",  title: "test1", status: "1", description: "", start: new Date(), end: new Date(), createdAt: new Date(), updatedAt: new Date()},
+    {"id": "2",  "title": "test2", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
+    {"id": "3",  "title": "test3", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
+    {"id": "4",  "title": "test4", "status": "1", "description": "", "start": new Date(), "end": new Date(), "createdAt": new Date(), "updatedAt": new Date()},
 ]

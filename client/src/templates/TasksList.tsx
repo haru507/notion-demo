@@ -71,8 +71,8 @@ const TasksList = () => {
   },[setDescription]);
 
   const taskSubmit = async () => {
-    const res: Task = await dispatch
-    setLists(lists => [...lists, res]);
+    // const res: Task = await dispatch
+    // setLists(lists => [...lists, res]);
     setOpen(!open)
   }
 
