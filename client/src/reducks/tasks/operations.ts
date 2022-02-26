@@ -1,9 +1,10 @@
-import { Task } from "../../assets/ts/type";
+import { Tasks } from "../../assets/ts/type";
 import axios from "axios";
 import {push} from "connected-react-router";
 import { hideLoadingAction, showLoadingAction } from "../loading/actions"
 import { isValidRequiredInput } from "../../utils/common";
 import { SEVER_URL } from "../../utils/config";
+import { fetchTasksAction } from "./actions";
 
 export const taskCreated = (id: string, title: string, status: string, description: string, start: Date, end: Date) => {
     return async (dispatch: any) => {
@@ -26,6 +27,8 @@ export const taskCreated = (id: string, title: string, status: string, descripti
         return axios.post(`${SEVER_URL.key}/task/created`, tasksData ,{ headers: {'Content-Type': 'application/json;charset=utf-8', 'Access-Control-Allow-Origin': '*'} })
             .then(res => {
                 console.log(res.data)
+                const tasks: Tasks = res.data
+                dispatch(fetchTasksAction(tasks))
                 dispatch(hideLoadingAction())
             })
             .catch(err => {

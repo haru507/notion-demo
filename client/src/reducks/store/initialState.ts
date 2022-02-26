@@ -15,19 +15,5 @@ export const initialState = {
         created_at: "",
         updated_at: ""
     },
-    tasks: {
-        task: [
-            {
-                id: "",
-                taskGroupId: "",
-                title: "",
-                status: "",
-                description: "",
-                start: "",
-                end: "",
-                createdAt: "",
-                updatedAt: ""
-            }
-        ]
-    }
+    tasks: []
 };

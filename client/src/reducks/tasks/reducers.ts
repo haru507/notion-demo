@@ -7,12 +7,12 @@ export const TasksReducer = (state = initialState.tasks, action: TasksAction)  =
         case Actions.DELETE_TASKS:
             return {
                 ...state,
-                task: action.payload
+                ...action.payload
             };
         case Actions.FETCH_TASKS:
             return {
                 ...state,
-                task: action.payload
+                ...action.payload
             };
         case Actions.INIT_TASKS:
             return {

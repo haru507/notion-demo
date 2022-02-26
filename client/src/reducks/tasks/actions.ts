@@ -1,10 +1,10 @@
 import { Tasks } from "../../assets/ts/type";
 
 export const DELETE_TASKS = "DELETE_TASKS";
-export const deleteTasksAction = (tasks: Tasks) => {
+export const deleteTasksAction = (id: number) => {
     return {
         type: "DELETE_PRODUCT",
-        payload: tasks
+        payload: id
     }
 }
 
